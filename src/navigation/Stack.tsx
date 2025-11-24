@@ -1,10 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Search } from "../screens/busca/index";
-import { Details } from "../screens/detalhes/index";
+import  Busca  from "../screens/Busca/index";
+import  Detalhes  from "../screens/Detalhes/index";
 
 export type RootStackParamList = {
-  Search: {};
-  Details: { id: string };
+  Busca: {};              
+  Detalhes: { id: string }; 
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -16,8 +16,8 @@ export function StackNavigator() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Busca" component={Busca} />
-      <Stack.Screen name="Detalhes" component={Detalhes} />
+      <Stack.Screen name="Busca" component={Busca} /> 
+      <Stack.Screen name="Detalhes" component={Detalhes} /> 
     </Stack.Navigator>
   );
 }
