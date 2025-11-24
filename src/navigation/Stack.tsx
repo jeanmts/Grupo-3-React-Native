@@ -1,6 +1,6 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Search } from '../../screens/busca/index';
-import { Details } from '../../screens/detalhes/index';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Search } from "../screens/busca/index";
+import { Details } from "../screens/detalhes/index";
 
 export type RootStackParamList = {
   Search: {};
