@@ -1,13 +1,55 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { styles } from './styles';
 
-const Add = () => {
-  return (
-    <View >
-      <Text >Add</Text>
-      <Text >Conteúdo da tela Add aqui...</Text>
-    </View>
-  );
+
+export default function AddScreen({ navigation }: any) {
+const [name, setName] = useState('');
+const [calories, setCalories] = useState('');
+
+
+const handleAdd = () => {
+if (!name || !calories) return;
+
+
+const item = {
+id: Date.now(),
+name,
+calories: Number(calories),
 };
 
-export default Add;
+
+navigation.navigate('Detalhes', { item });
+};
+
+
+return (
+<View style={styles.container}>
+<Text style={styles.title}>Adicionar Alimento</Text>
+
+
+<TextInput
+style={styles.input}
+placeholder="Nome do alimento"
+placeholderTextColor="#777"
+value={name}
+onChangeText={setName}
+/>
+
+
+<TextInput
+style={styles.input}
+placeholder="Calorias (kcal)"
+placeholderTextColor="#777"
+keyboardType="numeric"
+value={calories}
+onChangeText={setCalories}
+/>
+
+
+<TouchableOpacity style={styles.button} onPress={handleAdd}>
+<Text style={styles.buttonText}>Adicionar</Text>
+</TouchableOpacity>
+</View>
+);
+}

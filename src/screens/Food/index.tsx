@@ -1,13 +1,12 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { styles } from './food.styles';
 
-const Food = () => {
-  return (
-    <View >
-      <Text >Food</Text>
-      <Text >Conteúdo da tela Food aqui...</Text>
-    </View>
-  );
-};
 
-export default Food;
+export default function FoodScreen() {
+return (
+<View style={styles.container}>
+<Text style={styles.title}>Lista de Alimentos</Text>
+</View>
+);
+}
