@@ -1,65 +1,52 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  Children,
+  createContext,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+import apiUsers from "../services/apiUsers";
 
-interface NutritionGoals {
-  calories: number;
-  carbs: number;
-  protein: number;
-  fat: number;
+export interface userDetails {
+  id: string;
+  nome: string;
+  email: string;
+  senha: string;
 }
 
 interface UserContextValue {
-  name: string;
-  setName: (v: string) => void;
-
-  goals: NutritionGoals;
-  updateGoals: (g: Partial<NutritionGoals>) => void;
-
-  darkMode: boolean;
-  toggleDarkMode: () => void;
+  results: userDetails[];
+  allUsers: userDetails[] | undefined;
+  userContexto?: userDetails;
+  setUserContexto: React.Dispatch<
+    React.SetStateAction<userDetails | undefined>
+  >;
 }
 
 const UserContext = createContext<UserContextValue | undefined>(undefined);
+const [allUsers, setAllUsers] = useState<userDetails[]>();
 
-export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [name, setName] = useState("Guest User");
+interface UserProviderProps {
+  children: ReactNode;
+}
 
-  const [goals, setGoals] = useState<NutritionGoals>({
-    calories: 2200,
-    carbs: 250,
-    protein: 150,
-    fat: 70,
-  });
+const getAllUsers = async () => {
+  const { data } = await apiUsers.get<userDetails[]>("/usuarios");
 
-  const [darkMode, setDarkMode] = useState(false);
+  setAllUsers(data);
+};
 
-  const toggleDarkMode = () => setDarkMode((p) => !p);
-
-  const updateGoals = (update: Partial<NutritionGoals>) => {
-    setGoals((old) => ({ ...old, ...update }));
-  };
-
+export const UserProvider = ({ children }: UserProviderProps) => {
+  const [results, setResults] = useState<userDetails[]>([]);
+  const [userContexto, setUserContexto] = useState<userDetails>();
   return (
     <UserContext.Provider
-      value={{
-        name,
-        setName,
-        goals,
-        updateGoals,
-        darkMode,
-        toggleDarkMode,
-      }}
+      value={{ results, allUsers, userContexto, setUserContexto }}
     >
       {children}
     </UserContext.Provider>
   );
 };
 
-export const useUser = () => {
-  const context = useContext(UserContext);
-
-  if (!context) {
-    throw new Error("useUser deve ser usado dentro de UserProvider");
-  }
-
-  return context;
-};
+export const userContext = useContext(UserContext);
