@@ -1,18 +1,18 @@
-
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import Home from "../screens/Home";
-import Food from "../screens/Food";
-import Add from "../screens/Add";
-import Detalhes from "../screens/detalhes";
-import Perfil from "../screens/Perfil";
+import Home from "../../screens/Home";
+import Food from "../../screens/Food";
+import Add from "../../screens/Add";
+import Detalhes from "../../screens/detalhes";
+import Perfil from "../../screens/Perfil";
 
-const Tab = createBottomTabNavigator();
+const { Navigator, Screen } = createBottomTabNavigator();
 
-export default function BottomTabNavigator() {
+export function BottomTabNavigator() {
   return (
-    <Tab.Navigator
+    <Navigator
       screenOptions={{
         tabBarActiveTintColor: "#229431ff",
         tabBarInactiveTintColor: "gray",
@@ -23,8 +23,8 @@ export default function BottomTabNavigator() {
         },
       }}
     >
-      <Tab.Screen 
-        name="Home" 
+      <Screen
+        name="Home"
         component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -32,8 +32,8 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-      <Tab.Screen 
-        name="Food" 
+      <Screen
+        name="Food"
         component={Food}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -41,8 +41,8 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-      <Tab.Screen 
-        name="Add" 
+      <Screen
+        name="Add"
         component={Add}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -50,8 +50,8 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-      <Tab.Screen 
-        name="Detalhes" 
+      <Screen
+        name="Detalhes"
         component={Detalhes}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -59,8 +59,8 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-      <Tab.Screen 
-        name="Perfil" 
+      <Screen
+        name="Perfil"
         component={Perfil}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -68,6 +68,6 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
-    </Tab.Navigator>
+    </Navigator>
   );
 }
