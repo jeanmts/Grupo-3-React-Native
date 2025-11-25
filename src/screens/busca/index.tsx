@@ -1,7 +1,12 @@
-import { useState } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity } from "react-native";
-import { styles } from './stylesb';
-
+import { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import { styles } from "./styles";
 
 export default function SearchScreen({ navigation }: any) {
   const [query, setQuery] = useState("");
@@ -15,7 +20,7 @@ export default function SearchScreen({ navigation }: any) {
       { id: 3, name: "Frango Grelhado", calories: 239 },
     ];
 
-    const filtered = fakeData.filter(item =>
+    const filtered = fakeData.filter((item) =>
       item.name.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -24,7 +29,6 @@ export default function SearchScreen({ navigation }: any) {
 
   return (
     <View style={styles.container}>
-      
       <Text style={styles.title}>Buscar Alimentos</Text>
 
       <TextInput
