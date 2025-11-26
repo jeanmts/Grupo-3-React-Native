@@ -2,31 +2,33 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 interface AuthUser {
   id: string;
-  name: string;
+  nome: string;
   email: string;
+  foto?: string;
 }
 
 interface AuthContextType {
   user: AuthUser | null;
-  login: (u: AuthUser) => void;
+  login: (user: AuthUser) => void;
   logout: () => void;
+  setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>;
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>({
-    id: "1",
-    name: "Guest User",
-    email: "guest@email.com",
-  });
+  const [user, setUser] = useState<AuthUser | null>(null);
 
-  const login = (u: AuthUser) => setUser(u);
+  const login = (userData: AuthUser) => {
+    setUser(userData);
+  };
 
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );
