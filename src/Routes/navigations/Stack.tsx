@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Busca from "../../screens/busca";
-import Detalhes from "../../screens/detalhes";
-import Profile from "../../screens/Profile";
+import Detalhes from "../../screens/Detalhes";
+import Profile from "../../screens/profile";
 import Login from "../../screens/Login";
 import { BottomTabNavigator } from "./BottomTabNavigator";
+import Home from "../../screens/Home";
 
 export type RootStackParamList = {
-  Tabs: undefined;
+  Tabs: {};
+  Home:{};
   Busca: {};
   Login: {};
   Profile: {};
@@ -26,8 +27,8 @@ export function StackNavigator() {
       <Stack.Screen
         name="Tabs"
         component={BottomTabNavigator}
-        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
 }
+
