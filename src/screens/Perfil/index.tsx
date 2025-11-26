@@ -1,11 +1,17 @@
 import React, { useContext } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { AuthContext } from "../../context/AuthContext";
-import { styles } from "./per.styles";
+import { styles } from "./perfil.styles";
+import { RootStackParamList } from "../../Routes/navigations/Stack";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { BottomTabNav } from "../../Routes/navigations/BottomTabNavigator";
+
+type PerfilScreenProps = BottomTabNavigationProp<BottomTabNav, "Perfil">;
 
 
-export default function ProfileScreen({ navigation }) {
-const { user, logout } = useContext(AuthContext);
+const Perfil:React.FC<{ navigation: PerfilScreenProps }> = ({ navigation, }) =>  {
+
+    const { user, logout } = useContext(AuthContext);
 
 
 if (!user) return null;
@@ -43,3 +49,4 @@ onPress={() => navigation.navigate("EditProfile")}
 </View>
 );
 }
+export default Perfil;

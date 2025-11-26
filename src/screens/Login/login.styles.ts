@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   button: {
     width: 250,
     height: 50,
-    backgroundColor: "#007bff",
+    backgroundColor: "#229431ff",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 8,
@@ -35,4 +35,11 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
+  login: {
+    marginTop: 20,
+    fontSize: 14,
+    color: "#000",
+    textAlign: "center",
+  },
+
 });

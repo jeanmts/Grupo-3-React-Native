@@ -29,7 +29,7 @@ shadowRadius: 6,
 elevation: 3,
 },
 button: {
-backgroundColor: '#4C6EF5',
+backgroundColor: '#229431ff',
 paddingVertical: 14,
 borderRadius: 14,
 marginTop: 10,
