@@ -8,48 +8,42 @@ export default function Home({ navigation }: any) {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       
-      {/* HEADER */}
       <View style={styles.header}>
         <View>
-          <Text style={styles.title}>Nutri Track AI</Text>
+          <Text style={styles.title}>Nutri Life</Text>
           <Text style={styles.subtitle}>Sua evolução, no seu ritmo</Text>
         </View>
-
-        <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate("Profile")}>
-          <Ionicons name="person-circle-outline" size={42} color="#333" />
-        </TouchableOpacity>
       </View>
 
-      {/* ACCESS CARDS */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Acessos rápidos</Text>
+        <Text style={styles.sectionTitle}>Listar todos os "produtos"</Text>
 
+        {/* se quiser usar os cards como exemplo  */}
         <View style={styles.cardsRow}>
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Food")}>
+          <TouchableOpacity style={styles.card}>
             <Ionicons name="restaurant-outline" size={38} color="#5A67D8" />
-            <Text style={styles.cardText}>Registro{"\n"}Alimentar</Text>
+            <Text style={styles.cardText}>{"\n"}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Calculo")}>
+          <TouchableOpacity style={styles.card} >
             <Ionicons name="fitness-outline" size={38} color="#48BB78" />
-            <Text style={styles.cardText}>Cálculo{"\n"}Ideal</Text>
+            <Text style={styles.cardText}>{"\n"}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.cardsRow}>
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Search")}>
+          <TouchableOpacity style={styles.card}>
             <Ionicons name="search" size={38} color="#ED8936" />
-            <Text style={styles.cardText}>Buscar{"\n"}Alimentos</Text>
+            <Text style={styles.cardText}>{"\n"}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.card}>
             <Ionicons name="stats-chart-outline" size={38} color="#4299E1" />
-            <Text style={styles.cardText}>Progresso{"\n"}Diário</Text>
+            <Text style={styles.cardText}>{"\n"}</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      {/* RECOMMENDATIONS */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Recomendações do dia</Text>
 
