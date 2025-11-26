@@ -1,50 +1,40 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#121315',
     padding: 20,
+    justifyContent: 'center',
   },
-
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
+    color: '#fff',
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
-
-  card: {
-    backgroundColor: "#f2f2f2",
-    padding: 20,
-    borderRadius: 12,
-    marginBottom: 20,
-  },
-
   label: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: 'bold',
+    color: '#ccc',
     marginTop: 10,
   },
-
-  value: {
+  info: {
     fontSize: 16,
-    color: "#333",
+    color: '#fff',
+    marginTop: 4,
   },
-
   button: {
-    backgroundColor: "#007bff",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
+    marginTop: 30,
+    backgroundColor: '#a370f7',
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
   },
-
   buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "600",
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
-
-
-

@@ -1,24 +1,39 @@
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import { styles } from './detalhes.styles';
 
-import { View, Text, TouchableOpacity } from "react-native";
-import { styles } from "./detalhes.styles";
+type FoodItem = {
+  id: string | number;
+  name: string;
+  description?: string;
+  calories?: number | null;
+};
 
-export default function DetailScreen({ route, navigation }: any) {
-  const { item } = route.params;
+export default function Detalhes() {
+  const route = useRoute<any>();
+  const navigation = useNavigation();
+  const { item } = route.params as { item: FoodItem };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Detalhes do Item</Text>
+      <Text style={styles.title}>Detalhes do Alimento</Text>
 
-      <View style={styles.card}>
-        <Text style={styles.label}>Nome:</Text>
-        <Text style={styles.value}>{item.nome}</Text>
+      <Text style={styles.label}>Nome:</Text>
+      <Text style={styles.info}>{item.name}</Text>
 
-        <Text style={styles.label}>Descrição:</Text>
-        <Text style={styles.value}>{item.descricao}</Text>
+      {item.description && (
+        <>
+          <Text style={styles.label}>Descrição:</Text>
+          <Text style={styles.info}>{item.description}</Text>
+        </>
+      )}
 
-        <Text style={styles.label}>Peso:</Text>
-        <Text style={styles.value}>{item.peso} kg</Text>
-      </View>
+      {item.calories != null && (
+        <>
+          <Text style={styles.label}>Calorias:</Text>
+          <Text style={styles.info}>{item.calories} kcal</Text>
+        </>
+      )}
 
       <TouchableOpacity
         style={styles.button}
