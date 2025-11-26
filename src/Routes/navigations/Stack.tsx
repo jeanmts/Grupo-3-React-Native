@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Busca from "../../screens/Busca";
 import Detalhes from "../../screens/Detalhes";
-import Profile from "../../screens/profile";
+import Profile from "../../screens/Profile";
 import Login from "../../screens/Login";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import Home from "../../screens/Home";
