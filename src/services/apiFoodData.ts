@@ -8,20 +8,18 @@ const apiFoodData = axios.create({
 
 export default apiFoodData;
 
-
-const API_KEY = process.env.API_KEY_FOOD_DATA; 
+const API_KEY = process.env.EXPO_PUBLIC_API_URL;
 
 export const searchFoods = (searchQuery: string) => {
   if (!API_KEY) {
     throw new Error("API_KEY_FOOD_DATA não configurada!");
   }
-  
-  
+
   return apiFoodData.get("/search", {
     params: {
-      query: searchQuery, 
-      api_key: API_KEY, 
-      pageSize: 25, 
+      query: searchQuery,
+      api_key: API_KEY,
+      pageSize: 25,
     },
   });
 };

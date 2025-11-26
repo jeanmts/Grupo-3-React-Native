@@ -24,7 +24,7 @@ export function StackNavigator() {
       }}
     >
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Login" component={Login}  options={{headerShown: true}}/>
       <Stack.Screen
         name="Tabs"
         component={BottomTabNavigator}
