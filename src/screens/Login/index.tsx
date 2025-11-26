@@ -4,15 +4,15 @@ import { styles } from "./login.styles";
 import apiUsers from "../../services/apiUsers";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../Routes/navigations/Stack";
-import Home from "../Home";
-
+import { useAuth } from "../../context/AuthContext";
 
 type LoginScreenProps = StackNavigationProp<RootStackParamList, "Login">;
 
-const Login:React.FC<{ navigation: LoginScreenProps }> = ({ navigation, }) =>  {
-
+const Login: React.FC<{ navigation: LoginScreenProps }> = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { login } = useAuth(); 
 
   const validateFields = () => {
     if (!email.trim() || !password.trim()) {
@@ -31,17 +31,24 @@ const Login:React.FC<{ navigation: LoginScreenProps }> = ({ navigation, }) =>  {
   const handleLogin = () => {
     if (!validateFields()) return;
 
-    apiUsers.get("/users").then((response) => {
+    apiUsers
+      .get("/users")
+      .then((response) => {
         const users = response.data;
 
-        // valida manualmente no mockAPI
         const found = users.find(
           (u: any) => u.email === email && u.senha === password
         );
 
         if (found) {
+          login({
+            id: found.id,
+            nome: found.nome,
+            email: found.email,
+            foto: found.foto,
+          });
 
-          navigation.navigate("Tabs", {});
+          navigation.navigate({ name: "Tabs", params: {} });
 
         } else {
           Alert.alert("Erro", "Credenciais inválidas.");
@@ -77,10 +84,14 @@ const Login:React.FC<{ navigation: LoginScreenProps }> = ({ navigation, }) =>  {
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate("Profile", {})}>
-        <Text style={styles.login}> Não possui uma conta ? Cadastre</Text>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate({ name: "Profile", params: {} })}
+      >
+        <Text style={styles.login}> Não possui uma conta? Cadastre-se</Text>
       </TouchableOpacity>
     </View>
   );
-}
+};
+
 export default Login;
