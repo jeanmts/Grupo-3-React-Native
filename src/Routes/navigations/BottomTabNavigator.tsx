@@ -7,8 +7,18 @@ import Food from "../../screens/Food";
 import Add from "../../screens/Add";
 import Detalhes from "../../screens/Detalhes";
 import Perfil from "../../screens/Perfil";
+import Busca from "../../screens/Busca";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+export type BottomTabNav= {
+  Perfil:{},
+  Home: {};
+  Food: {};
+  Add: {};
+  Detalhes: {};
+  Busca: {};
+}
+
+const { Navigator, Screen } = createBottomTabNavigator<BottomTabNav>();
 
 export function BottomTabNavigator() {
   return (
@@ -21,6 +31,7 @@ export function BottomTabNavigator() {
           borderTopWidth: 1,
           borderTopColor: "#E0E0E0",
         },
+        headerShown: false,
       }}
     >
       <Screen
@@ -56,6 +67,15 @@ export function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="list" size={size} color={color} />
+          ),
+        }}
+      />
+      <Screen
+        name="Busca"
+        component={Busca}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search" size={size} color={color} />
           ),
         }}
       />

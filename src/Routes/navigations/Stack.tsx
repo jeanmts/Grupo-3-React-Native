@@ -4,9 +4,11 @@ import Detalhes from "../../screens/Detalhes";
 import Profile from "../../screens/Profile";
 import Login from "../../screens/Login";
 import { BottomTabNavigator } from "./BottomTabNavigator";
+import Home from "../../screens/Home";
 
 export type RootStackParamList = {
-  Tabs: undefined;
+  Tabs: {};
+  Home:{};
   Busca: {};
   Login: {};
   Profile: {};
@@ -26,8 +28,8 @@ export function StackNavigator() {
       <Stack.Screen
         name="Tabs"
         component={BottomTabNavigator}
-        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
 }
+
