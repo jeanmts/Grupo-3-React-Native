@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
+import Detalhes from "../../screens/Detalhes";
 import Home from "../../screens/Home";
 import Food from "../../screens/Food";
 import Add from "../../screens/Add";
@@ -60,7 +60,7 @@ export function BottomTabNavigator() {
           ),
         }}
       />
-      {/* <Screen
+      <Screen
         name="Detalhes"
         component={Detalhes}
         options={{
@@ -68,7 +68,7 @@ export function BottomTabNavigator() {
             <Ionicons name="list" size={size} color={color} />
           ),
         }}
-      /> */}
+      />
       <Screen
         name="Busca"
         component={Busca}
