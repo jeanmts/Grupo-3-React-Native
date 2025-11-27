@@ -5,7 +5,7 @@ import { styles } from './detalhes.styles';
 type FoodItem = {
   id: string | number;
   name: string;
-  description?: string;
+  ingredients?: string;
   calories?: number | null;
 };
 
@@ -21,10 +21,11 @@ export default function Detalhes() {
       <Text style={styles.label}>Nome:</Text>
       <Text style={styles.info}>{item.name}</Text>
 
-      {item.description && (
+      {/* 🔄 TROCA DE DESCRIPTION PARA INGREDIENTS */}
+      {item.ingredients && (
         <>
-          <Text style={styles.label}>Descrição:</Text>
-          <Text style={styles.info}>{item.description}</Text>
+          <Text style={styles.label}>Ingredientes:</Text>
+          <Text style={styles.info}>{item.ingredients}</Text>
         </>
       )}
 

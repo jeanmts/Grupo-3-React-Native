@@ -3,99 +3,84 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5F6FA",
-    paddingHorizontal: 20,
+    padding: 20,
+    backgroundColor: "#F7FAFC",
   },
-
-  /* HEADER */
-  header: {
-    marginTop: 50,
-    marginBottom: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+header: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  marginBottom: 25,
+  paddingTop: 20, // ajuste o valor como preferir
+},
 
   title: {
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: "bold",
     color: "#2D3748",
   },
 
   subtitle: {
-    fontSize: 15,
+    fontSize: 14,
     color: "#4A5568",
-    marginTop: 3,
   },
 
   profileButton: {
-    padding: 4,
+    padding: 5,
   },
 
-  /* SECTIONS */
   section: {
-    marginTop: 25,
+    marginTop: 10,
   },
 
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#2D3748",
     marginBottom: 15,
   },
 
-  /* CARDS */
-  cardsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 15,
+  recoContainer: {
+    paddingBottom: 20,
   },
 
-  card: {
-    width: "48%",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    paddingVertical: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 6,
-    elevation: 4,
-  },
-
-  cardText: {
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 15,
-    fontWeight: "600",
-    color: "#2D3748",
-    lineHeight: 20,
-  },
-
-  /* RECOMMENDATIONS */
   recoCard: {
-    width: 130,
-    height: 140,
-    backgroundColor: "#FFFFFF",
-    borderRadius: 18,
-    padding: 15,
-    marginRight: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    marginBottom: 12,
+    elevation: 2,
+  },
+
+  diamond: {
+    width: 55,
+    height: 55,
+    backgroundColor: "#EDF2F7",
+    justifyContent: "center",
+    alignItems: "center",
+    transform: [{ rotate: "45deg" }],
+    borderRadius: 12,
+    marginRight: 20,
+  },
+
+  // Endireita o ícone dentro do diamante
+  diamondInner: {
+    transform: [{ rotate: "-45deg" }],
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.07,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 5,
-    elevation: 3,
+  },
+
+  // Quando está marcado (verde/azul/etc)
+  diamondActive: {
+    backgroundColor: "#2ECC71",
   },
 
   recoText: {
-    marginTop: 12,
-    fontSize: 14,
-    textAlign: "center",
+    fontSize: 16,
+    color: "#2D3748",
     fontWeight: "500",
-    color: "#4A5568",
   },
 });

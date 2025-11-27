@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./login.styles";
 import apiUsers from "../../services/apiUsers";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../Routes/navigations/Stack";
 import { useAuth } from "../../context/AuthContext";
+
 
 type LoginScreenProps = StackNavigationProp<RootStackParamList, "Login">;
 
@@ -60,7 +61,7 @@ const Login: React.FC<{ navigation: LoginScreenProps }> = ({ navigation }) => {
       });
   };
 
-  return (
+     return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
 
@@ -84,14 +85,14 @@ const Login: React.FC<{ navigation: LoginScreenProps }> = ({ navigation }) => {
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={() => navigation.navigate({ name: "Profile", params: {} })}
-      >
-        <Text style={styles.login}> Não possui uma conta? Cadastre-se</Text>
-      </TouchableOpacity>
+    <TouchableOpacity
+  style={{ marginTop: 15 }}
+  activeOpacity={0.7}
+  onPress={() => navigation.navigate("Profile")}
+>
+  <Text style={styles.login}>Não tem uma conta? Crie aqui</Text>
+</TouchableOpacity>
     </View>
   );
 };
-
 export default Login;
