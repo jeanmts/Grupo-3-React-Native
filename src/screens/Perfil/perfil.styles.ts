@@ -4,13 +4,14 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F7F9FC",
-    padding: 20,
+    padding: 30,
   },
 
   header: {
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 25,
+    marginTop: 20,
   },
 
   errorText: {
@@ -18,7 +19,6 @@ export const styles = StyleSheet.create({
     color: "red",
   },
 
-  // CARD DO USUÁRIO
   userCard: {
     backgroundColor: "#fff",
     flexDirection: "row",
@@ -56,7 +56,6 @@ export const styles = StyleSheet.create({
     color: "#7B7B7B",
   },
 
-  // CARD DOS OBJETIVOS
   goalsCard: {
     backgroundColor: "#fff",
     padding: 18,
@@ -110,6 +109,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F5FB",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
 
   saveButton: {
@@ -126,7 +126,6 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
 
-  // PREFERÊNCIAS
   preferenceRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -155,4 +154,54 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
+  weekCard: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  backgroundColor: "#fff",
+  padding: 18,
+  borderRadius: 16,
+  marginBottom: 25,
+  shadowColor: "#000",
+  shadowOpacity: 0.05,
+  shadowRadius: 4,
+  elevation: 2,
+},
+
+dayItem: {
+  alignItems: "center",
+  width: 40,
+},
+
+dayLabel: {
+  fontSize: 14,
+  marginBottom: 6,
+  fontWeight: "600",
+},
+
+statusDot: {
+  width: 14,
+  height: 14,
+  borderRadius: 7,
+  marginBottom: 6,
+},
+
+calSmallText: {
+  fontSize: 12,
+  color: "#666",
+  textAlign: "center",
+},
+grafico:{
+  marginLeft: 100,
+  width: 200,
+  height: 190,
+},
+grafCard:{
+  backgroundColor: "#fff",
+    borderRadius: 16,
+    marginBottom: 25,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+}
+
 });
