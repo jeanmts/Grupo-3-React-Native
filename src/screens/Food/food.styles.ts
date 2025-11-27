@@ -1,6 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
+
 export const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F5F6FA", paddingHorizontal: 20 },
+  container: {
+    flex: 1,
+    backgroundColor: "#F5F6FA",
+    paddingHorizontal: 20,
+  },
+
   header: {
     marginTop: 50,
     marginBottom: 20,
@@ -8,9 +14,23 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  title: { fontSize: 28, fontWeight: "bold", color: "#2D3748" },
-  subtitle: { fontSize: 15, color: "#4A5568", marginTop: 3 },
-  section: { marginTop: 25 },
+
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#2D3748",
+  },
+
+  subtitle: {
+    fontSize: 15,
+    color: "#4A5568",
+    marginTop: 3,
+  },
+
+  section: {
+    marginTop: 25,
+  },
+
   sectionTitle: {
     fontSize: 20,
     fontWeight: "bold",

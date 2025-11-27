@@ -12,7 +12,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
 
-      {/* HEADER */}
       <View style={styles.header}>
         <View>
           <Text style={styles.title}>Olá!</Text>
@@ -20,7 +19,6 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      {/* RECOMENDAÇÕES */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Recomendações do dia</Text>
 
@@ -29,7 +27,6 @@ export default function HomeScreen() {
           contentContainerStyle={styles.recoContainer}
         >
 
-          {/* BEBER ÁGUA */}
           <TouchableOpacity
             style={styles.recoCard}
             onPress={() => setDrinkChecked(!drinkChecked)}
@@ -46,7 +43,6 @@ export default function HomeScreen() {
             <Text style={styles.recoText}>Beba 2L de água</Text>
           </TouchableOpacity>
 
-          {/* CAMINHAR */}
           <TouchableOpacity
             style={styles.recoCard}
             onPress={() => setWalkChecked(!walkChecked)}
@@ -63,7 +59,6 @@ export default function HomeScreen() {
             <Text style={styles.recoText}>Caminhe 20 min</Text>
           </TouchableOpacity>
 
-          {/* FIBRAS */}
           <TouchableOpacity
             style={styles.recoCard}
             onPress={() => setFiberChecked(!fiberChecked)}
