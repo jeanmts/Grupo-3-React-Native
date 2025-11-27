@@ -13,7 +13,7 @@ import { searchFoods } from "../../services/apiFoodData";
 interface FoodItem {
   id: string | number;
   name: string;
-  description?: string;
+  ingredients?: string;
   calories?: number | null;
 }
 
@@ -39,8 +39,15 @@ export default function SearchScreen({ navigation }: any) {
 
       const formattedResults: FoodItem[] = foods.map((food: any) => ({
         id: String(food.fdcId),
+
+        // Nome = descrição do alimento
         name: food.description,
-        description: `Tipo: ${food.dataType}`,
+
+        // Ingredientes
+        ingredients: food.ingredients
+          ? `Ingredientes: ${food.ingredients}`
+          : "Ingredientes não informados",
+
         calories:
           food.foodNutrients?.find(
             (n: any) => n.nutrientName === "Energy"
@@ -107,8 +114,8 @@ export default function SearchScreen({ navigation }: any) {
           >
             <Text style={styles.itemName}>{item.name}</Text>
 
-            {item.description && (
-              <Text style={styles.itemDescription}>{item.description}</Text>
+            {item.ingredients && (
+              <Text style={styles.itemDescription}>{item.ingredients}</Text>
             )}
 
             {item.calories != null && (
