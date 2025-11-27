@@ -3,26 +3,26 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#121315",
+    backgroundColor: "#F5F6FA",
     padding: 20,
   },
 
   title: {
     fontSize: 24,
-    color: "#fff",
+    color: "#000",
     fontWeight: "bold",
     marginBottom: 20,
-    textAlign: "center",
+    marginTop: 40,
   },
 
   input: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#ffffffff",
     padding: 12,
     borderRadius: 8,
-    color: "#fff",
+    color: "#000",
     fontSize: 16,
     borderWidth: 1,
-    borderColor: "#333",
+    borderColor: "#3333339a",
     marginBottom: 15,
   },
 
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
 
   item: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#F5F6FA",
     padding: 15,
     borderRadius: 10,
     marginBottom: 12,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
   itemName: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000",
     marginBottom: 6,
   },
 
