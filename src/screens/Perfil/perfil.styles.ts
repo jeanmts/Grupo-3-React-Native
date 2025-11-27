@@ -4,13 +4,14 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F7F9FC",
-    padding: 20,
+    padding: 30,
   },
 
   header: {
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 25,
+    marginTop: 20,
   },
 
   errorText: {
@@ -18,7 +19,6 @@ export const styles = StyleSheet.create({
     color: "red",
   },
 
-  // CARD DO USUÁRIO
   userCard: {
     backgroundColor: "#fff",
     flexDirection: "row",
@@ -54,9 +54,9 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
     marginBottom: 10,
     color: "#7B7B7B",
+    marginTop: -10,
   },
 
-  // CARD DOS OBJETIVOS
   goalsCard: {
     backgroundColor: "#fff",
     padding: 18,
@@ -110,6 +110,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F5FB",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
 
   saveButton: {
@@ -126,7 +127,6 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
 
-  // PREFERÊNCIAS
   preferenceRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -146,6 +146,7 @@ export const styles = StyleSheet.create({
 
   // LOGOUT
   logoutBtn: {
+    marginTop: -13,
     alignSelf: "center",
     padding: 15,
   },
@@ -155,4 +156,22 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
+
+  
+  grafico:{
+    marginLeft: 90,
+    width: 200,
+    height: 150,
+    marginTop: 0,
+  },
+  grafCard:{
+    backgroundColor: "#fff",
+      borderRadius: 16,
+      marginBottom: 15,
+      shadowColor: "#000",
+      shadowOpacity: 0.05,
+      shadowRadius: 4,
+      height: 150,
+  }
+
 });

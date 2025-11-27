@@ -28,7 +28,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const getAllUsers = async () => {
     try {
-      const { data } = await apiUsers.get<userDetails[]>("/usuarios");
+      const { data } = await apiUsers.get<userDetails[]>("/users");
       setAllUsers(data);
     } catch (error) {
       console.log("Erro ao carregar usuários:", error);
