@@ -146,7 +146,7 @@ export const styles = StyleSheet.create({
 
   // LOGOUT
   logoutBtn: {
-    marginTop: -15,
+    marginTop: -13,
     alignSelf: "center",
     padding: 15,
   },
