@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
     marginBottom: 10,
     color: "#7B7B7B",
+    marginTop: -10,
   },
 
   goalsCard: {
@@ -145,6 +146,7 @@ export const styles = StyleSheet.create({
 
   // LOGOUT
   logoutBtn: {
+    marginTop: -13,
     alignSelf: "center",
     padding: 15,
   },
@@ -154,54 +156,22 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
-  weekCard: {
-  flexDirection: "row",
-  justifyContent: "space-between",
-  backgroundColor: "#fff",
-  padding: 18,
-  borderRadius: 16,
-  marginBottom: 25,
-  shadowColor: "#000",
-  shadowOpacity: 0.05,
-  shadowRadius: 4,
-  elevation: 2,
-},
 
-dayItem: {
-  alignItems: "center",
-  width: 40,
-},
-
-dayLabel: {
-  fontSize: 14,
-  marginBottom: 6,
-  fontWeight: "600",
-},
-
-statusDot: {
-  width: 14,
-  height: 14,
-  borderRadius: 7,
-  marginBottom: 6,
-},
-
-calSmallText: {
-  fontSize: 12,
-  color: "#666",
-  textAlign: "center",
-},
-grafico:{
-  marginLeft: 100,
-  width: 200,
-  height: 190,
-},
-grafCard:{
-  backgroundColor: "#fff",
-    borderRadius: 16,
-    marginBottom: 25,
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-}
+  
+  grafico:{
+    marginLeft: 90,
+    width: 200,
+    height: 150,
+    marginTop: 0,
+  },
+  grafCard:{
+    backgroundColor: "#fff",
+      borderRadius: 16,
+      marginBottom: 15,
+      shadowColor: "#000",
+      shadowOpacity: 0.05,
+      shadowRadius: 4,
+      height: 150,
+  }
 
 });
