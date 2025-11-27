@@ -1,5 +1,5 @@
 // src/screens/FoodSearchScreen.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import { styles } from "./styles";
+import { styles } from ;
 import apiUsers from "../../services/apiUsers";
 import { RootStackParamList } from "../../Routes/navigations/Stack";
 
