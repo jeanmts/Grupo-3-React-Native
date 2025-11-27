@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import { styles } from ;
+import { styles } from "./Style";
 import apiUsers from "../../services/apiUsers";
 import { RootStackParamList } from "../../Routes/navigations/Stack";
 

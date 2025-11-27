@@ -4,10 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Home from "../../screens/Home";
 import Food from "../../screens/Food";
-import Add from "../../screens/Add";
-import Detalhes from "../../screens/Detalhes";
-import Perfil from "../../screens/Perfil";
-import Busca from "../../screens/Busca";
+import Add from "../../screens/add";
+import Detalhes from "../../screens/detalhes";
+import Perfil from "../../screens/perfil";
+import Busca from "../../screens/busca";
 
 export type BottomTabNav= {
   Perfil:{},
@@ -61,7 +61,7 @@ export function BottomTabNavigator() {
           ),
         }}
       />
-      <Screen
+      {/* <Screen
         name="Detalhes"
         component={Detalhes}
         options={{
@@ -69,7 +69,7 @@ export function BottomTabNavigator() {
             <Ionicons name="list" size={size} color={color} />
           ),
         }}
-      />
+      /> */}
       <Screen
         name="Busca"
         component={Busca}
