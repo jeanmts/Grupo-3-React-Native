@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { searchFoods } from "../../services/apiFoodData";
+import translate from "google-translate-api-x";
 
 interface FoodItem {
   id: string | number;
@@ -23,6 +24,70 @@ export default function SearchScreen({ navigation }: any) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // --- FUNÇÃO DE SEGURANÇA ---
+  // Tenta traduzir. Se demorar mais de 5 segundos ou der erro, devolve o original.
+  const safeTranslate = async (text: string): Promise<string> => {
+    if (!text || !text.trim()) return text;
+
+    try {
+      console.log(`Tentando traduzir: "${text}"`);
+
+      // Cria uma promessa que rejeita após 5 segundos (Timeout)
+      const timeout = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error("Timeout")), 5000)
+      );
+
+      // Tenta a tradução oficial
+      // A biblioteca pode retornar de diferentes formas, então tentamos sem 'from' primeiro
+      let translation: any;
+      try {
+        translation = await Promise.race([
+          translate(text, { to: "pt" }),
+          timeout,
+        ]);
+      } catch (e) {
+        // Se falhar, tenta com 'from' especificado
+        translation = await Promise.race([
+          translate(text, { to: "pt", from: "en" }),
+          timeout,
+        ]);
+      }
+
+      console.log(`Resposta da tradução:`, JSON.stringify(translation));
+
+      // A biblioteca retorna um objeto com a propriedade 'text'
+      // Verifica diferentes possíveis estruturas de resposta
+      if (translation) {
+        if (typeof translation === "object") {
+          // Tenta diferentes propriedades possíveis
+          const translatedText =
+            translation.text ||
+            translation.translatedText ||
+            translation[0]?.text ||
+            (Array.isArray(translation) && translation[0]) ||
+            text;
+
+          if (translatedText && translatedText !== text) {
+            console.log(`Texto traduzido: "${translatedText}"`);
+            return String(translatedText);
+          }
+        }
+
+        // Se for string direto, retorna
+        if (typeof translation === "string" && translation !== text) {
+          console.log(`Texto traduzido (string): "${translation}"`);
+          return translation;
+        }
+      }
+
+      console.log(`Não foi possível extrair tradução, retornando original`);
+      return text;
+    } catch (err: any) {
+      console.log(`Falha ao traduzir "${text}":`, err?.message || err);
+      return text; // Devolve o texto original em caso de erro
+    }
+  };
+
   const handleSearch = async () => {
     if (!query.trim()) {
       setResults([]);
@@ -36,25 +101,38 @@ export default function SearchScreen({ navigation }: any) {
     try {
       const response = await searchFoods(query);
       const foods = response.data.foods || [];
+      console.log(
+        `2. Encontrados ${foods.length} itens. Iniciando tradução...`
+      );
 
-      const formattedResults: FoodItem[] = foods.map((food: any) => ({
-        id: String(food.fdcId),
+      // Mapeia e traduz com segurança
+      const promises = foods.map(async (food: any) => {
+        // Pega o nome/descrição do alimento (pode estar em description ou brandName)
+        const foodName =
+          food.description || food.brandName || food.brandOwner || "Alimento";
+        const dataType = food.dataType || "Unknown";
 
-        // Nome = descrição do alimento
-        name: food.description,
+        // Usamos a função segura criada acima para traduzir
+        const nomeTraduzido = await safeTranslate(foodName);
+        const tipoTraduzido = await safeTranslate(dataType);
 
-        // Ingredientes
-        ingredients: food.ingredients
-          ? `Ingredientes: ${food.ingredients}`
-          : "Ingredientes não informados",
+        return {
+          id: String(food.fdcId),
+          name: nomeTraduzido,
+          description: `Tipo: ${tipoTraduzido}`,
+          calories:
+            food.foodNutrients?.find((n: any) => n.nutrientName === "Energy")
+              ?.value || null,
+        };
+      });
 
-        calories:
-          food.foodNutrients?.find(
-            (n: any) => n.nutrientName === "Energy"
-          )?.value || null,
-      }));
+      const produtoTraduzido = await Promise.all(promises);
 
-      setResults(formattedResults);
+      console.log(
+        "3. Processo finalizado! Itens traduzidos:",
+        produtoTraduzido.length
+      );
+      setResults(produtoTraduzido);
     } catch (err: any) {
       console.error("Erro na busca da API:", err);
 
@@ -94,9 +172,7 @@ export default function SearchScreen({ navigation }: any) {
 
       {error && <Text style={styles.error}>{error}</Text>}
 
-      {loading && (
-        <ActivityIndicator style={styles.loading} size="large" />
-      )}
+      {loading && <ActivityIndicator style={styles.loading} size="large" />}
 
       <FlatList
         style={styles.list}
