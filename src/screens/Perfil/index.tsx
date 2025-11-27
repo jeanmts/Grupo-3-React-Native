@@ -113,6 +113,8 @@ const Perfil: React.FC<PerfilScreenProps> = ({ navigation }) => {
         </TouchableOpacity> */}
       </View>
 
+      <Text style={styles.sectionTitle}>Gráfico</Text>
+
       <View style={styles.grafCard}>
         <Image
           source={imagem}
