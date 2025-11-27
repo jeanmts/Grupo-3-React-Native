@@ -18,10 +18,6 @@ export default function HomeScreen() {
           <Text style={styles.title}>Olá!</Text>
           <Text style={styles.subtitle}>Veja suas informações de hoje</Text>
         </View>
-
-        <TouchableOpacity style={styles.profileButton}>
-          <Ionicons name="person-circle-outline" size={40} color="#2D3748" />
-        </TouchableOpacity>
       </View>
 
       {/* RECOMENDAÇÕES */}
